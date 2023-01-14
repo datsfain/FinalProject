@@ -28,6 +28,7 @@
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="CNN"
+                android:textColor="#2596be"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -42,6 +43,7 @@
                 android:layout_marginTop="2dp"
                 android:text="@string/example_article_title"
                 android:textAlignment="viewStart"
+                android:textColor="#155a7b"
                 android:ellipsize="end"
                 android:textSize="14sp" />
 
@@ -53,6 +55,7 @@
                 android:text="@string/example_article_date"
                 android:textAlignment="viewEnd"
                 android:textSize="12sp"
+                android:textColor="#4b9ac0"
                 />
         </LinearLayout>
 

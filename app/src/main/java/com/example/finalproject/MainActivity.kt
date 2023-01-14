@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             val connection = createGetRequest();
 
             if(connection.responseCode == 200){
+
                 val reader = connection.inputStream.reader();
                 val jsonResponse = reader.readText();
                 reader.close();
@@ -42,7 +43,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayArticles(){
-        articlesRecyclerView.adapter = ArticlesAdapter(news.articles) { println("clicked") };
+        articlesRecyclerView.adapter = ArticlesAdapter(news.articles) {
+
+            val articleFragment = ArticleFragment.newInstance(it);
+
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, articleFragment)
+                .addToBackStack(null)
+                .commit()
+        };
     }
 
     private fun createGetRequest() : HttpURLConnection {
