@@ -1,6 +1,8 @@
 package com.example.finalproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.dataclasses.NewsResponse
@@ -16,12 +18,14 @@ class MainActivity : AppCompatActivity() {
     private val HOST = "news-api14.p.rapidapi.com";
     private lateinit var news : NewsResponse;
     private lateinit var articlesRecyclerView: RecyclerView
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        articlesRecyclerView = findViewById<RecyclerView>(R.id.articles_recycler_view)
+        articlesRecyclerView = findViewById(R.id.articles_recycler_view)
         articlesRecyclerView.layoutManager = LinearLayoutManager(this);
+        progressBar = findViewById(R.id.recycler_progress_bar)
         fetchData()
     }
 
@@ -43,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayArticles(){
+        progressBar.visibility = View.GONE
         articlesRecyclerView.adapter = ArticlesAdapter(news.articles) {
 
             val articleFragment = ArticleFragment.newInstance(it);

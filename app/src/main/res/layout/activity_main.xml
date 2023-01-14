@@ -26,10 +26,23 @@
 
     </ScrollView>
 
+    <ProgressBar
+        android:id="@+id/recycler_progress_bar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large.Inverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/articles_scroll_view"
+        app:layout_constraintTop_toTopOf="@+id/articles_scroll_view" />
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
